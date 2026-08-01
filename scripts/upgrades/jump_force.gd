@@ -32,7 +32,6 @@ func _update_player():
 func _on_pressed():
 	get_tree().root.add_child(PRESSED_SFX.instantiate())
 	if Data.coins >= upgrade_price:
-		$AnimationPlayer.play("tilt")
 		Data.coins -= upgrade_price
 		upgrade_level += 1
 		upgrade_price = ceil(upgrade_price * 1.15)

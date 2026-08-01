@@ -25,6 +25,4 @@ func _on_mouse_exited() -> void:
 
 func _on_retry_pressed() -> void:
 	Data.coins = 0
-	animation_player.play("tilt")
-	await animation_player.animation_finished
 	get_tree().reload_current_scene()
