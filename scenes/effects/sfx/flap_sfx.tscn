@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bf65t7pw10e0f"]
+
+[ext_resource type="AudioStream" uid="uid://bs8dwki5tq5jn" path="res://assets/sfx/flap.ogg" id="1_724e2"]
+[ext_resource type="Script" uid="uid://d3jqqpw13v3ic" path="res://scenes/effects/sfx/sfx.gd" id="2_ke36s"]
+
+[node name="FlapSFX" type="AudioStreamPlayer" unique_id=1481585577]
+stream = ExtResource("1_724e2")
+autoplay = true
+bus = &"sfx"
+script = ExtResource("2_ke36s")

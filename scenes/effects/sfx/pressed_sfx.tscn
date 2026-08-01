@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dwbjiermqfuog"]
+
+[ext_resource type="AudioStream" uid="uid://dnc40l1gcvtwx" path="res://assets/sfx/selected.ogg" id="1_133kc"]
+[ext_resource type="Script" uid="uid://d3jqqpw13v3ic" path="res://scenes/effects/sfx/sfx.gd" id="2_133kc"]
+
+[node name="PressedSFX" type="AudioStreamPlayer" unique_id=106452947]
+stream = ExtResource("1_133kc")
+autoplay = true
+bus = &"sfx"
+script = ExtResource("2_133kc")

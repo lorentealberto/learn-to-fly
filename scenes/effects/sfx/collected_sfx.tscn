@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d2gwlq074y8d6"]
+
+[ext_resource type="AudioStream" uid="uid://bj70spykjd15c" path="res://assets/sfx/collected.ogg" id="1_w7u3w"]
+[ext_resource type="Script" uid="uid://d3jqqpw13v3ic" path="res://scenes/effects/sfx/sfx.gd" id="2_17obp"]
+
+[node name="CollectedSFX" type="AudioStreamPlayer" unique_id=900230832]
+stream = ExtResource("1_w7u3w")
+autoplay = true
+bus = &"sfx"
+script = ExtResource("2_17obp")

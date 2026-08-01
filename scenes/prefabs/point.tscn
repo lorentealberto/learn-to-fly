@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cp4g8fki7actp"]
+
+[ext_resource type="Script" uid="uid://bp68njpfcrgpm" path="res://scripts/entities/point.gd" id="1_ic6ss"]
+[ext_resource type="Texture2D" uid="uid://dtj48y8gaytuj" path="res://assets/graphics/apple.png" id="2_ic6ss"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_acagy"]
+
+[node name="Point" type="Area2D" unique_id=262382196]
+scale = Vector2(3, 3)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_ic6ss")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=118414977]
+texture = ExtResource("2_ic6ss")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=793218807]
+shape = SubResource("CircleShape2D_acagy")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1896825907]

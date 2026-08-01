@@ -1,0 +1,486 @@
+[gd_scene format=3 uid="uid://bv1pkvrg6on2r"]
+
+[ext_resource type="Texture2D" uid="uid://dtj48y8gaytuj" path="res://assets/graphics/apple.png" id="1_1x8kf"]
+[ext_resource type="Script" uid="uid://bwthvj5w1nbvo" path="res://scripts/ui/background.gd" id="1_ttmjj"]
+[ext_resource type="Texture2D" uid="uid://boad53ltr4imh" path="res://assets/graphics/bg.png" id="1_y4g18"]
+[ext_resource type="Script" uid="uid://dhqij21ww0sjw" path="res://scripts/utils/points_spawner.gd" id="1_ye2pu"]
+[ext_resource type="Script" uid="uid://e1b1s5lc7fqe" path="res://scripts/ui/coins.gd" id="2_cp7s4"]
+[ext_resource type="Script" uid="uid://curwdxtlkeh2d" path="res://scripts/ui/health_bar.gd" id="3_5y255"]
+[ext_resource type="Script" uid="uid://bwmoyvxr77r3k" path="res://scripts/utils/main_camera.gd" id="4_7xrya"]
+[ext_resource type="Texture2D" uid="uid://2w0qjyy2hwjp" path="res://assets/graphics/button.png" id="4_o0dot"]
+[ext_resource type="PackedScene" uid="uid://ccaa7eeydygnh" path="res://scenes/prefabs/player.tscn" id="5_ttmjj"]
+[ext_resource type="Texture2D" uid="uid://cblsxfgjett0l" path="res://assets/graphics/button_pressed.png" id="5_w3fcd"]
+[ext_resource type="Script" uid="uid://21m2jlndi4db" path="res://scripts/upgrades/jump_force.gd" id="5_xpdyx"]
+[ext_resource type="Script" uid="uid://bppncgdyn3cdf" path="res://scripts/upgrades/speed_up.gd" id="6_72dyo"]
+[ext_resource type="Texture2D" uid="uid://ds0y3m3cpesem" path="res://assets/graphics/jump_force.png" id="6_xrnll"]
+[ext_resource type="Script" uid="uid://cisloajee31s2" path="res://scripts/upgrades/more_food.gd" id="7_8v0c3"]
+[ext_resource type="Script" uid="uid://cu0xp2ny07ovc" path="res://scripts/ui/dead_message.gd" id="8_1x8kf"]
+[ext_resource type="Texture2D" uid="uid://dkrvgbfho1nr3" path="res://assets/graphics/retry_button.png" id="8_8v0c3"]
+[ext_resource type="Texture2D" uid="uid://dpfqn2a7icfut" path="res://assets/graphics/horizontal_speed.png" id="8_w3fcd"]
+[ext_resource type="Texture2D" uid="uid://cvbfx0bo27hxl" path="res://assets/graphics/retry_button_hover.png" id="9_1x8kf"]
+[ext_resource type="Texture2D" uid="uid://byjydgiffqtn3" path="res://assets/graphics/more_food.png" id="10_3k7j8"]
+
+[sub_resource type="Animation" id="Animation_lger3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FoodIcon:offset_transform_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8m28k"]
+resource_name = "shake"
+length = 0.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FoodIcon:offset_transform_rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.08726646, 0.08726646, -0.08726646]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yybn1"]
+_data = {
+&"RESET": SubResource("Animation_lger3"),
+&"shake": SubResource("Animation_8m28k")
+}
+
+[sub_resource type="Animation" id="Animation_g5dox"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ux2ng"]
+resource_name = "tilt"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.08726646, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3k7j8"]
+_data = {
+&"RESET": SubResource("Animation_g5dox"),
+&"tilt": SubResource("Animation_ux2ng")
+}
+
+[sub_resource type="Animation" id="Animation_f07kb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3qpe5"]
+resource_name = "tilt"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.08726646, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w3fcd"]
+_data = {
+&"RESET": SubResource("Animation_f07kb"),
+&"tilt": SubResource("Animation_3qpe5")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wwglc"]
+blend_mode = 3
+
+[node name="Main" type="Node2D" unique_id=1157706918]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=59574509]
+
+[node name="UpgradesMenu" type="Panel" parent="UI" unique_id=1846156651]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -218.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/UpgradesMenu" unique_id=831843213]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/UpgradesMenu/MarginContainer" unique_id=1264325091]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer" unique_id=1501092691]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/VBoxContainer" unique_id=439032485]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="FoodIcon" type="TextureRect" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=25320924]
+layout_mode = 2
+offset_transform_enabled = true
+texture = ExtResource("1_1x8kf")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Coins" type="Label" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1226377454]
+layout_mode = 2
+theme_type_variation = &"ui_text"
+text = "000000"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_cp7s4")
+
+[node name="HealthBar" type="ProgressBar" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1614776196]
+layout_mode = 2
+size_flags_vertical = 3
+value = 100.0
+show_percentage = false
+script = ExtResource("3_5y255")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1062527745]
+unique_name_in_owner = true
+root_node = NodePath("../HBoxContainer")
+libraries/ = SubResource("AnimationLibrary_yybn1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer" unique_id=864892603]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+
+[node name="JumpForceUpgrade" type="TextureButton" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer" unique_id=1362336435 node_paths=PackedStringArray("player")]
+custom_minimum_size = Vector2(208, 162)
+layout_mode = 2
+offset_transform_enabled = true
+texture_normal = ExtResource("4_o0dot")
+texture_pressed = ExtResource("5_w3fcd")
+stretch_mode = 4
+script = ExtResource("5_xpdyx")
+player = NodePath("../../../../../../Player")
+
+[node name="TextureRect" type="TextureRect" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/JumpForceUpgrade" unique_id=1787569083]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 93.0
+offset_bottom = 91.0
+texture = ExtResource("6_xrnll")
+stretch_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/JumpForceUpgrade" unique_id=7414737]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -86.0
+offset_right = 65.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/JumpForceUpgrade/MarginContainer" unique_id=162945518]
+layout_mode = 2
+
+[node name="Price" type="Label" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/JumpForceUpgrade/MarginContainer/VBoxContainer" unique_id=987160726]
+layout_mode = 2
+theme_type_variation = &"price"
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level" type="Label" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/JumpForceUpgrade/MarginContainer/VBoxContainer" unique_id=917506364]
+layout_mode = 2
+theme_type_variation = &"level"
+text = "Level 1"
+horizontal_alignment = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/JumpForceUpgrade" unique_id=2065250652]
+libraries/ = SubResource("AnimationLibrary_3k7j8")
+
+[node name="SpeedUpUpgrade" type="TextureButton" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer" unique_id=1473768833 node_paths=PackedStringArray("player")]
+custom_minimum_size = Vector2(208, 162)
+layout_mode = 2
+offset_transform_enabled = true
+texture_normal = ExtResource("4_o0dot")
+texture_pressed = ExtResource("5_w3fcd")
+stretch_mode = 4
+script = ExtResource("6_72dyo")
+player = NodePath("../../../../../../Player")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/SpeedUpUpgrade" unique_id=1633799591]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -86.0
+offset_right = 65.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/SpeedUpUpgrade/MarginContainer" unique_id=1087176832]
+layout_mode = 2
+
+[node name="Price" type="Label" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/SpeedUpUpgrade/MarginContainer/VBoxContainer" unique_id=1066776604]
+layout_mode = 2
+theme_type_variation = &"price"
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level" type="Label" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/SpeedUpUpgrade/MarginContainer/VBoxContainer" unique_id=1915185101]
+layout_mode = 2
+theme_type_variation = &"level"
+text = "Level 1"
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/SpeedUpUpgrade" unique_id=588147379]
+layout_mode = 1
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+texture = ExtResource("8_w3fcd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/SpeedUpUpgrade" unique_id=1538194516]
+libraries/ = SubResource("AnimationLibrary_3k7j8")
+
+[node name="MoreFoodUpgrade" type="TextureButton" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer" unique_id=1212914128 node_paths=PackedStringArray("points_spawner")]
+custom_minimum_size = Vector2(208, 162)
+layout_mode = 2
+offset_transform_enabled = true
+texture_normal = ExtResource("4_o0dot")
+texture_pressed = ExtResource("5_w3fcd")
+stretch_mode = 4
+script = ExtResource("7_8v0c3")
+points_spawner = NodePath("../../../../../../PointsSpawner")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/MoreFoodUpgrade" unique_id=348061605]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -86.0
+offset_right = 65.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/MoreFoodUpgrade/MarginContainer" unique_id=604463154]
+layout_mode = 2
+
+[node name="Price" type="Label" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/MoreFoodUpgrade/MarginContainer/VBoxContainer" unique_id=221643801]
+layout_mode = 2
+theme_type_variation = &"price"
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level" type="Label" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/MoreFoodUpgrade/MarginContainer/VBoxContainer" unique_id=859707589]
+layout_mode = 2
+theme_type_variation = &"level"
+text = "Level 1"
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/MoreFoodUpgrade" unique_id=987049574]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+texture = ExtResource("10_3k7j8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/MoreFoodUpgrade" unique_id=831568358]
+libraries/ = SubResource("AnimationLibrary_3k7j8")
+
+[node name="DeadMessage" type="CenterContainer" parent="UI" unique_id=1268375205]
+visible = false
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_1x8kf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/DeadMessage" unique_id=803947985]
+layout_mode = 2
+theme_override_constants/separation = 159
+
+[node name="Label" type="Label" parent="UI/DeadMessage/VBoxContainer" unique_id=1545831242]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8666667, 0.8666667, 0.8666667, 1)
+text = "You've starved"
+
+[node name="TextureButton" type="TextureButton" parent="UI/DeadMessage/VBoxContainer" unique_id=910743886]
+custom_minimum_size = Vector2(440, 184)
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+texture_normal = ExtResource("8_8v0c3")
+texture_pressed = ExtResource("9_1x8kf")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="UI/DeadMessage/VBoxContainer/TextureButton" unique_id=1113055825]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -6.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Retry"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/DeadMessage/VBoxContainer/TextureButton" unique_id=1597101336]
+libraries/ = SubResource("AnimationLibrary_w3fcd")
+
+[node name="Background" type="CanvasLayer" parent="." unique_id=1347325323 node_paths=PackedStringArray("player")]
+layer = -1
+script = ExtResource("1_ttmjj")
+player = NodePath("../Player")
+
+[node name="CenterContainer" type="CenterContainer" parent="Background" unique_id=334356041]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.11145833
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Level" type="Label" parent="Background/CenterContainer" unique_id=812127118]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.8666667, 0.8666667, 0.8666667, 1)
+theme_override_font_sizes/font_size = 192
+text = "0"
+horizontal_alignment = 1
+
+[node name="Parallax2D" type="Parallax2D" parent="Background" unique_id=1079991288]
+scroll_scale = Vector2(1, 0.5)
+repeat_size = Vector2(0, 1920)
+follow_viewport = false
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D" unique_id=1641026687]
+position = Vector2(540, 960)
+texture = ExtResource("1_y4g18")
+
+[node name="ColorRect" type="ColorRect" parent="Background" unique_id=2056386449]
+material = SubResource("CanvasItemMaterial_wwglc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.1931151, 0.62782896, 0.3491902, 1)
+metadata/_edit_lock_ = true
+
+[node name="PointsSpawner" type="Node2D" parent="." unique_id=814651840 node_paths=PackedStringArray("player")]
+position = Vector2(0, 608)
+script = ExtResource("1_ye2pu")
+player = NodePath("../Player")
+
+[node name="Timer" type="Timer" parent="PointsSpawner" unique_id=1083287714]
+
+[node name="MainCamera" type="Camera2D" parent="." unique_id=1528668017 node_paths=PackedStringArray("player")]
+position = Vector2(540, 1576)
+scale = Vector2(2, 2)
+limit_left = 0
+limit_right = 1080
+limit_smoothed = true
+position_smoothing_speed = 10.0
+script = ExtResource("4_7xrya")
+player = NodePath("../Player")
+
+[node name="Player" parent="." unique_id=849974625 node_paths=PackedStringArray("health_bar") instance=ExtResource("5_ttmjj")]
+position = Vector2(540, 1102)
+flap_force = -600.0
+health_bar = NodePath("../UI/UpgradesMenu/MarginContainer/HBoxContainer/VBoxContainer/HealthBar")

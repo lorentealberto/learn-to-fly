@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   sodipodi:docname="icons.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.0041055"
+     inkscape:cx="67.721966"
+     inkscape:cy="366.9933"
+     inkscape:window-width="1920"
+     inkscape:window-height="1006"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Jump Force"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-72.44607,-106.72963)">
+    <circle
+       style="fill:#00b419;fill-opacity:1;stroke:none;stroke-width:0.165083;stroke-opacity:1"
+       id="path1"
+       cx="103.48589"
+       cy="137.76945"
+       r="31.039824"
+       inkscape:export-filename="../graphics/jump_force"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       d="m 103.66396,112.04017 -17.664315,18.06237 10.485086,-0.0114 v -0.008 h 6.800139 l 17.68727,-0.0194 z m -0.37909,18.0434 -6.800139,0.008 v 33.40717 h 14.002319 v -33.41467 z"
+       style="fill:#9affa9;fill-opacity:1;stroke-width:0.225951"
+       id="path3" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="MoreApples">
+    <circle
+       style="fill:#0effe9;fill-opacity:1;stroke:none;stroke-width:0.165083;stroke-opacity:1"
+       id="circle7"
+       cx="40.531994"
+       cy="127.81774"
+       r="31.039824"
+       inkscape:export-filename="../graphics/more_food.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       id="rect1"
+       style="fill:#d48511;stroke-width:0.179749"
+       d="m 33.28321,99.328219 c -0.54007,-0.41187 0.51621,-0.63152 1.11492,-0.95222 0.612224,-0.32794 1.286944,-1.01 1.937404,-0.76658 3.80763,1.4249 4.01648,7.089671 5.60878,10.830391 1.55665,3.65696 5.58881,7.72731 3.83015,11.29152 -0.29149,0.59075 -1.24768,0.42322 -1.87152,0.63483 -0.62385,0.21161 -1.29748,0.95798 -1.87153,0.63483 -3.45765,-1.94639 -1.0005,-7.98034 -2.57851,-11.62089 -1.58052,-3.64635 -2.02204,-6.8888 -6.169694,-10.051881 z"
+       sodipodi:nodetypes="sssssssss" />
+    <path
+       id="path1-3"
+       style="fill:#d41111;fill-opacity:1;stroke-width:0.151001"
+       d="m 63.947394,120.2238 c 0,8.2018 -2.65424,17.40553 -6.92497,24.55882 -4.27074,7.15328 -10.26266,1.7817 -16.72865,1.7817 -6.465984,0 -12.181759,5.37159 -16.385732,-1.7817 -4.203972,-7.15328 -6.791449,-16.35702 -6.791449,-24.55882 0,-8.2018 2.465405,-11.52109 6.547306,-12.78993 4.0819,-1.26884 10.464481,1.91774 15.789005,1.94623 5.83122,0.0312 12.93257,-3.21507 17.32537,-1.94623 4.39281,1.26884 7.16912,4.58813 7.16912,12.78993 z"
+       sodipodi:nodetypes="ssssssass" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Horizontal Speed"
+     transform="translate(-7.4529486,-169.32258)">
+    <circle
+       style="fill:#feb900;fill-opacity:1;stroke:none;stroke-width:0.165083;stroke-opacity:1"
+       id="circle3"
+       cx="119.57634"
+       cy="209.16685"
+       r="31.039824"
+       inkscape:export-filename="../graphics/horizontal_speed.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       d="m 115.32769,185.55162 -6.49157,17.21349 v 4.54304 h 11.21399 l -3.81982,6.6163 -3.23677,18.85763 7.62876,-8.52937 -0.0841,-0.19768 9.66883,-16.74688 h 0.10956 v -4.54304 h -9.81015 l 6.49128,-17.21349 z"
+       style="fill:#ffe49c;fill-opacity:1;stroke-width:0.187516"
+       id="path7" />
+  </g>
+</svg>

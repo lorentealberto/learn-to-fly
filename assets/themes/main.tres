@@ -1,0 +1,37 @@
+[gd_resource type="Theme" format=3 uid="uid://tihmatsr62uk"]
+
+[ext_resource type="FontFile" uid="uid://ckmx8esk6m68k" path="res://assets/fonts/font.otf" id="1_aiue4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mpy8"]
+bg_color = Color(0.668, 0.8, 0.44000003, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aiue4"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pgokm"]
+bg_color = Color(0.37574998, 0.45, 0.2475, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[resource]
+Label/colors/font_color = Color(0.2, 0.2, 0.2, 1)
+Label/font_sizes/font_size = 96
+Label/fonts/font = ExtResource("1_aiue4")
+Panel/styles/panel = SubResource("StyleBoxFlat_7mpy8")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_aiue4")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_pgokm")
+level/base_type = &"Label"
+level/colors/font_color = Color(0.53333336, 0.53333336, 0.53333336, 1)
+level/font_sizes/font_size = 32
+price/base_type = &"Label"
+price/font_sizes/font_size = 72
+ui_text/base_type = &"Label"
+ui_text/font_sizes/font_size = 96

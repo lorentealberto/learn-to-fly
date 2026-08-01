@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://bx80gjws8tdha"]
+
+[ext_resource type="Texture2D" uid="uid://boad53ltr4imh" path="res://assets/graphics/bg.png" id="1_33r1f"]
+[ext_resource type="Texture2D" uid="uid://dyk13kkof4630" path="res://assets/graphics/logo.png" id="1_fk57n"]
+[ext_resource type="Script" uid="uid://d376etwas4isd" path="res://scripts/main_menu/logo.gd" id="2_kle54"]
+[ext_resource type="Texture2D" uid="uid://dkrvgbfho1nr3" path="res://assets/graphics/retry_button.png" id="3_5daj2"]
+[ext_resource type="Texture2D" uid="uid://cvbfx0bo27hxl" path="res://assets/graphics/retry_button_hover.png" id="4_stv76"]
+[ext_resource type="Script" uid="uid://dmqxy635yqt83" path="res://scripts/main_menu/start_game.gd" id="5_g5dox"]
+[ext_resource type="PackedScene" uid="uid://dwbjiermqfuog" path="res://scenes/effects/sfx/pressed_sfx.tscn" id="6_ux2ng"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g5dox"]
+blend_mode = 3
+
+[sub_resource type="Animation" id="Animation_g5dox"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ux2ng"]
+resource_name = "tilt"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.08726646, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2slgv"]
+_data = {
+&"RESET": SubResource("Animation_g5dox"),
+&"tilt": SubResource("Animation_ux2ng")
+}
+
+[node name="MainMenu" type="Node2D" unique_id=298572013]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2145643857]
+
+[node name="Logo" type="TextureRect" parent="CanvasLayer" unique_id=1252381330]
+z_index = 1
+anchors_preset = -1
+anchor_left = 0.11064815
+anchor_top = 0.18984374
+anchor_right = 0.8902778
+anchor_bottom = 0.36380208
+offset_left = 210.0
+offset_top = 80.0
+offset_right = -211.0
+offset_bottom = -87.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(210, 80)
+offset_transform_enabled = true
+texture = ExtResource("1_fk57n")
+script = ExtResource("2_kle54")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=2129790317]
+material = SubResource("CanvasItemMaterial_g5dox")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.1931151, 0.62782896, 0.3491902, 1)
+metadata/_edit_lock_ = true
+
+[node name="StartGame" type="TextureButton" parent="CanvasLayer" unique_id=2039611054]
+custom_minimum_size = Vector2(440, 184)
+anchors_preset = -1
+anchor_left = 0.2962963
+anchor_top = 0.78125
+anchor_right = 0.7037037
+anchor_bottom = 0.87708336
+offset_left = 165.0
+offset_top = 69.0
+offset_right = -165.0
+offset_bottom = -69.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(55, 23)
+offset_transform_enabled = true
+texture_normal = ExtResource("3_5daj2")
+texture_hover = ExtResource("4_stv76")
+stretch_mode = 0
+script = ExtResource("5_g5dox")
+pressed_sfx = ExtResource("6_ux2ng")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/StartGame" unique_id=1094785148]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/StartGame" unique_id=2126419998]
+libraries/ = SubResource("AnimationLibrary_2slgv")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=450367372]
+texture = ExtResource("1_33r1f")
+centered = false
