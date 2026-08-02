@@ -23,4 +23,8 @@ func _on_pressed() -> void:
 		var sfx: AudioStreamPlayer = pressed_sfx.instantiate()
 		get_tree().root.add_child(sfx)
 
+	Globals.scene_entry = &"menu"
+	var fade_animation_player: AnimationPlayer = Fade.get_node("AnimationPlayer")
+	fade_animation_player.play("fade_out")
+	await fade_animation_player.animation_finished
 	get_tree().change_scene_to_file("res://scenes/states/main.tscn")
