@@ -24,6 +24,7 @@ buses/default_bus_layout="uid://b16rkbwvlqgr3"
 Globals="*uid://dmcbks060t51c"
 Data="*uid://dt782rlgds1so"
 Events="*uid://cqvvnfmn1mjoc"
+Fade="*uid://mxuw3bfbs555"
 
 [display]
 
