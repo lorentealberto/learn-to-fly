@@ -5,6 +5,7 @@ extends CenterContainer
 
 
 func _ready() -> void:
+	texture_button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	Events.health_depleted.connect(_on_health_depleted)
 	texture_button.mouse_entered.connect(_on_mouse_entered)
 	texture_button.mouse_exited.connect(_on_mouse_exited)

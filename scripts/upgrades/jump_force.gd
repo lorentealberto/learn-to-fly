@@ -10,6 +10,7 @@ var upgrade_level: int = 1
 var upgrade_price: int = 1
 
 func _ready():
+	mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	price.text = str(upgrade_price)
 	level.text = "Level " + str(upgrade_level)
 	_update_player()
