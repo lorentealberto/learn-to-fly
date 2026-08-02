@@ -10,6 +10,7 @@ var upgrade_level: int = 1
 var upgrade_price: int = 1
 
 func _ready():
+	focus_mode = Control.FOCUS_NONE
 	mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	price.text = str(upgrade_price)
 	level.text = "Level " + str(upgrade_level)
@@ -27,6 +28,11 @@ func _on_mouse_exited():
 	$AnimationPlayer.stop()
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("upgrade_jump_force"):
+		_on_pressed()
+
+
 func _update_player():
 	player.flap_force = -600.0 * sqrt(upgrade_level)
 
@@ -40,3 +46,4 @@ func _on_pressed():
 		level.text = "Level " + str(upgrade_level)
 		_update_player()
 		Events.coins_updated.emit()
+		$AnimationPlayer.play("tilt")
