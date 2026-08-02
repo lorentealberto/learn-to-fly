@@ -169,6 +169,7 @@ theme_override_constants/separation = 32
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer" unique_id=1501092691]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 16
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/VBoxContainer" unique_id=439032485]
@@ -177,16 +178,19 @@ theme_override_constants/separation = 8
 
 [node name="FoodIcon" type="TextureRect" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=25320924]
 layout_mode = 2
+size_flags_horizontal = 3
 offset_transform_enabled = true
 texture = ExtResource("1_1x8kf")
 expand_mode = 2
 stretch_mode = 4
 
 [node name="Coins" type="Label" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1226377454]
+custom_minimum_size = Vector2(260, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_type_variation = &"ui_text"
 text = "000000"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 script = ExtResource("2_cp7s4")
 
