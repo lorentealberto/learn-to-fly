@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://bv1pkvrg6on2r"]
 
-[ext_resource type="Script" path="res://scripts/states/main.gd" id="11_main"]
 [ext_resource type="Texture2D" uid="uid://dtj48y8gaytuj" path="res://assets/graphics/apple.png" id="1_1x8kf"]
 [ext_resource type="Script" uid="uid://bwthvj5w1nbvo" path="res://scripts/ui/background.gd" id="1_ttmjj"]
 [ext_resource type="Texture2D" uid="uid://boad53ltr4imh" path="res://assets/graphics/bg.png" id="1_y4g18"]
@@ -20,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dpfqn2a7icfut" path="res://assets/graphics/horizontal_speed.png" id="8_w3fcd"]
 [ext_resource type="Texture2D" uid="uid://cvbfx0bo27hxl" path="res://assets/graphics/retry_button_hover.png" id="9_1x8kf"]
 [ext_resource type="Texture2D" uid="uid://byjydgiffqtn3" path="res://assets/graphics/more_food.png" id="10_3k7j8"]
+[ext_resource type="Script" uid="uid://corwrpwe26jta" path="res://scripts/states/main.gd" id="11_main"]
 
 [sub_resource type="Animation" id="Animation_lger3"]
 length = 0.001
@@ -485,6 +485,8 @@ limit_smoothed = true
 position_smoothing_speed = 10.0
 script = ExtResource("4_7xrya")
 player = NodePath("../Player")
+idle_bob_amplitude = 10.0
+idle_bob_frequency = 2.0
 
 [node name="Player" parent="." unique_id=849974625 node_paths=PackedStringArray("health_bar") instance=ExtResource("5_ttmjj")]
 position = Vector2(540, 1102)
