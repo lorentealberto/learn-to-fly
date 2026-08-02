@@ -11,6 +11,7 @@ extends CharacterBody2D
 var _flap_timer: float
 var _flap_buffer: int
 var _can_flap: bool = true
+var _started: bool = false
 
 var direction: int = 1:
 	set(value):
@@ -27,9 +28,14 @@ var _tween: Tween
 
 func _ready() -> void:
 	_flap_timer = flap_cooldown
-	_update_tilt()
+	animation.play("flap_loop")
+	Globals.player = self
 	area_2d.area_entered.connect(_on_area_entered)
 	Events.health_depleted.connect(_on_health_depleted)
+
+
+func is_active() -> bool:
+	return _started
 
 
 func _on_area_entered(_area: Area2D) -> void:
@@ -51,12 +57,17 @@ func _update_tilt() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if _can_flap and event.is_action_pressed("flap"):
+		_started = true
+		_update_tilt()
 		_flap_buffer = mini(_flap_buffer + 1, 1)
 	if _can_flap and event.is_action_released("flap"):
 		_flap_buffer = 0
 
 func _process(delta: float) -> void:
 	_flap_timer += delta
+	if not _started:
+		return
+
 	velocity.y += gravity * delta
 
 	if _can_flap and _flap_timer >= flap_cooldown and _flap_buffer > 0:

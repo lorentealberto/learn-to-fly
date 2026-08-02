@@ -4,6 +4,9 @@ extends ProgressBar
 var _is_shaking: bool = false
 
 func _process(delta: float) -> void:
+	if not is_instance_valid(Globals.player) or not Globals.player.call("is_active"):
+		return
+
 	var prev_value := value
 	value = max(value - 12 * delta, 0)
 	if value == 0:
