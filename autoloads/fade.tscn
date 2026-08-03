@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://mxuw3bfbs555"]
 
+[ext_resource type="Script" uid="uid://cm0cv03eio821" path="res://autoloads/fade.gd" id="1_32ofq"]
+
 [sub_resource type="Animation" id="Animation_kotlb"]
 length = 0.001
 tracks/0/type = "value"
@@ -17,8 +19,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_g7igk"]
 resource_name = "fade_in"
-length = 0.15
-step = 0.05
+length = 0.39999999999999997
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -26,24 +28,7 @@ tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_lpwms"]
-resource_name = "fade_in_2"
-length = 0.25
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
+"times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
@@ -51,8 +36,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_32ofq"]
 resource_name = "fade_out"
-length = 0.15
-step = 0.05
+length = 0.3
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -60,21 +45,54 @@ tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lpwms"]
+resource_name = "reset_scene"
+length = 0.39999999999999997
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+	"times": PackedFloat32Array(0.19999999),
+	"transitions": PackedFloat32Array(1),
+	"values": [{
+	"args": [],
+	"method": &"emit_fade_halfway"
+	}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g7igk"]
 _data = {
 &"RESET": SubResource("Animation_kotlb"),
 &"fade_in": SubResource("Animation_g7igk"),
-&"fade_in_2": SubResource("Animation_lpwms"),
-&"fade_out": SubResource("Animation_32ofq")
+&"fade_out": SubResource("Animation_32ofq"),
+&"reset_scene": SubResource("Animation_lpwms")
 }
 
 [node name="Fade" type="CanvasLayer" unique_id=276417888]
+layer = 2
+script = ExtResource("1_32ofq")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=495890770]
 anchors_preset = 15

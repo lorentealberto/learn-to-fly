@@ -27,4 +27,5 @@ func _on_mouse_exited() -> void:
 func _on_retry_pressed() -> void:
 	Data.coins = 0
 	Globals.scene_entry = &"retry"
-	get_tree().reload_current_scene()
+	var fade_animation_player: AnimationPlayer = Fade.get_node("AnimationPlayer")
+	fade_animation_player.play("reset_scene")
