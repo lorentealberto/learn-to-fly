@@ -474,8 +474,6 @@ position = Vector2(0, 608)
 script = ExtResource("1_ye2pu")
 player = NodePath("../Player")
 
-[node name="Timer" type="Timer" parent="PointsSpawner" unique_id=1083287714]
-
 [node name="MainCamera" type="Camera2D" parent="." unique_id=1528668017 node_paths=PackedStringArray("player")]
 position = Vector2(540, 1576)
 scale = Vector2(2, 2)
