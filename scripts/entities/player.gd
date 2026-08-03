@@ -73,6 +73,7 @@ func _process(delta: float) -> void:
 	if _can_flap and _flap_timer >= flap_cooldown and _flap_buffer > 0:
 		_flap_buffer -= 1
 		velocity.y = flap_force
+		Events.flap_pressed.emit()
 		animation.play("flap")
 		var sfx: AudioStreamPlayer = flap_sfx.instantiate()
 		get_tree().root.add_child(sfx)
