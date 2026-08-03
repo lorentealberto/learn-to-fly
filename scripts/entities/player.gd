@@ -42,8 +42,7 @@ func _on_area_entered(_area: Area2D) -> void:
 	_area.queue_free()
 	Data.coins += 1
 	Events.coins_updated.emit()
-	health_bar.value = 100
-	_can_flap = true
+	health_bar.value += health_bar.max_value * 0.1
 	var sfx: AudioStreamPlayer = coin_sfx.instantiate()
 	get_tree().root.add_child(sfx)
 	

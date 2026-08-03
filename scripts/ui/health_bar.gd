@@ -8,7 +8,7 @@ func _ready() -> void:
 
 
 func _on_flap_pressed() -> void:
-	value = max(value - 12, 0)
+	value = max(value - max_value * 0.05, 0)
 
 
 func _process(delta: float) -> void:

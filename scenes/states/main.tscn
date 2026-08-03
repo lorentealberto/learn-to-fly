@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dtj48y8gaytuj" path="res://assets/graphics/apple.png" id="1_1x8kf"]
 [ext_resource type="Script" uid="uid://bwthvj5w1nbvo" path="res://scripts/ui/background.gd" id="1_ttmjj"]
 [ext_resource type="Texture2D" uid="uid://boad53ltr4imh" path="res://assets/graphics/bg.png" id="1_y4g18"]
-[ext_resource type="Script" uid="uid://dhqij21ww0sjw" path="res://scripts/utils/points_spawner.gd" id="1_ye2pu"]
+[ext_resource type="Script" uid="uid://dhqij21ww0sjw" path="res://scripts/utils/food_spawner.gd" id="1_ye2pu"]
 [ext_resource type="Script" uid="uid://e1b1s5lc7fqe" path="res://scripts/ui/coins.gd" id="2_cp7s4"]
 [ext_resource type="Script" uid="uid://curwdxtlkeh2d" path="res://scripts/ui/health_bar.gd" id="3_5y255"]
 [ext_resource type="Script" uid="uid://bwmoyvxr77r3k" path="res://scripts/utils/main_camera.gd" id="4_7xrya"]
@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://21m2jlndi4db" path="res://scripts/upgrades/jump_force.gd" id="5_xpdyx"]
 [ext_resource type="Script" uid="uid://bppncgdyn3cdf" path="res://scripts/upgrades/speed_up.gd" id="6_72dyo"]
 [ext_resource type="Texture2D" uid="uid://ds0y3m3cpesem" path="res://assets/graphics/jump_force.png" id="6_xrnll"]
-[ext_resource type="Script" uid="uid://cisloajee31s2" path="res://scripts/upgrades/more_food.gd" id="7_8v0c3"]
+[ext_resource type="Script" uid="uid://cisloajee31s2" path="res://scripts/upgrades/more_energy.gd" id="7_8v0c3"]
 [ext_resource type="Script" uid="uid://cu0xp2ny07ovc" path="res://scripts/ui/dead_message.gd" id="8_1x8kf"]
 [ext_resource type="Texture2D" uid="uid://dkrvgbfho1nr3" path="res://assets/graphics/retry_button.png" id="8_8v0c3"]
 [ext_resource type="Texture2D" uid="uid://dpfqn2a7icfut" path="res://assets/graphics/horizontal_speed.png" id="8_w3fcd"]
@@ -326,7 +326,7 @@ texture = ExtResource("8_w3fcd")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/SpeedUpUpgrade" unique_id=1538194516]
 libraries/ = SubResource("AnimationLibrary_3k7j8")
 
-[node name="MoreFoodUpgrade" type="TextureButton" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer" unique_id=1212914128 node_paths=PackedStringArray("points_spawner")]
+[node name="MoreEnergyUpgrade" type="TextureButton" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer" unique_id=1212914128 node_paths=PackedStringArray("points_spawner")]
 custom_minimum_size = Vector2(208, 162)
 layout_mode = 2
 offset_transform_enabled = true
@@ -334,9 +334,9 @@ texture_normal = ExtResource("4_o0dot")
 texture_pressed = ExtResource("5_w3fcd")
 stretch_mode = 4
 script = ExtResource("7_8v0c3")
-points_spawner = NodePath("../../../../../../PointsSpawner")
+points_spawner = NodePath("../../../../../../FoodSpawner")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/MoreFoodUpgrade" unique_id=348061605]
+[node name="MarginContainer" type="MarginContainer" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/MoreEnergyUpgrade" unique_id=348061605]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -354,23 +354,23 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/MoreFoodUpgrade/MarginContainer" unique_id=604463154]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/MoreEnergyUpgrade/MarginContainer" unique_id=604463154]
 layout_mode = 2
 
-[node name="Price" type="Label" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/MoreFoodUpgrade/MarginContainer/VBoxContainer" unique_id=221643801]
+[node name="Price" type="Label" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/MoreEnergyUpgrade/MarginContainer/VBoxContainer" unique_id=221643801]
 layout_mode = 2
 theme_type_variation = &"price"
 text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Level" type="Label" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/MoreFoodUpgrade/MarginContainer/VBoxContainer" unique_id=859707589]
+[node name="Level" type="Label" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/MoreEnergyUpgrade/MarginContainer/VBoxContainer" unique_id=859707589]
 layout_mode = 2
 theme_type_variation = &"level"
 text = "Level 1"
 horizontal_alignment = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/MoreFoodUpgrade" unique_id=987049574]
+[node name="TextureRect" type="TextureRect" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/MoreEnergyUpgrade" unique_id=987049574]
 layout_mode = 0
 offset_left = -8.0
 offset_top = -8.0
@@ -378,7 +378,7 @@ offset_right = 56.0
 offset_bottom = 56.0
 texture = ExtResource("10_3k7j8")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/MoreFoodUpgrade" unique_id=831568358]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/MoreEnergyUpgrade" unique_id=831568358]
 libraries/ = SubResource("AnimationLibrary_3k7j8")
 
 [node name="DeadMessage" type="CenterContainer" parent="UI" unique_id=1268375205]
@@ -469,7 +469,7 @@ mouse_filter = 2
 color = Color(0.1931151, 0.62782896, 0.3491902, 1)
 metadata/_edit_lock_ = true
 
-[node name="PointsSpawner" type="Node2D" parent="." unique_id=814651840 node_paths=PackedStringArray("player")]
+[node name="FoodSpawner" type="Node2D" parent="." unique_id=814651840 node_paths=PackedStringArray("player")]
 position = Vector2(0, 608)
 script = ExtResource("1_ye2pu")
 player = NodePath("../Player")

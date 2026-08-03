@@ -1,11 +1,11 @@
 extends Node2D
 
 @export var player: CharacterBody2D
-@export var spawn_distance: float = 1000.0
+@export var spawn_distance: float = 750.0
 @export var spawn_ahead_distance: float = 100.0
 @export var points_multiplier: float = 1.0
 
-const POINT_SCENE: PackedScene = preload("res://scenes/prefabs/point.tscn")
+const POINT_SCENE: PackedScene = preload("res://scenes/prefabs/food.tscn")
 
 const BASE_POINT_COUNT: int = 3
 const DIAGONAL_MIN_POINTS: int = 5
