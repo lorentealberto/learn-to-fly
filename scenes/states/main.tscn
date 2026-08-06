@@ -381,7 +381,7 @@ texture = ExtResource("10_3k7j8")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/UpgradesMenu/MarginContainer/HBoxContainer/HBoxContainer/MoreEnergyUpgrade" unique_id=831568358]
 libraries/ = SubResource("AnimationLibrary_3k7j8")
 
-[node name="DeadMessage" type="CenterContainer" parent="UI" unique_id=1268375205]
+[node name="DeadMessage" type="CenterContainer" parent="UI" unique_id=1268375205 node_paths=PackedStringArray("player")]
 visible = false
 anchors_preset = 14
 anchor_top = 0.5
@@ -390,6 +390,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("8_1x8kf")
+player = NodePath("../../Player")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/DeadMessage" unique_id=803947985]
 layout_mode = 2

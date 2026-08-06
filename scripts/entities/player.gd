@@ -12,6 +12,8 @@ var _flap_timer: float
 var _flap_buffer: int
 var _can_flap: bool = true
 var _started: bool = false
+var highest_height: int = 0
+var _start_y: float
 
 var direction: int = 1:
 	set(value):
@@ -28,6 +30,7 @@ var _tween: Tween
 
 func _ready() -> void:
 	_flap_timer = flap_cooldown
+	_start_y = global_position.y
 	animation.play("flap_loop")
 	Globals.player = self
 	area_2d.area_entered.connect(_on_area_entered)
@@ -88,6 +91,8 @@ func _process(delta: float) -> void:
 	elif global_position.x > screen_width - 100:
 		global_position.x = screen_width - 100
 		direction = -1
+
+	highest_height = maxi(highest_height, floori(_start_y - global_position.y))
 
 func _on_health_depleted() -> void:
 	_can_flap = false

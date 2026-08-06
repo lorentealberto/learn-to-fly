@@ -1,5 +1,6 @@
 extends CenterContainer
 
+@export var player: CharacterBody2D
 @onready var texture_button: TextureButton = $VBoxContainer/TextureButton
 @onready var animation_player: AnimationPlayer = texture_button.get_node("AnimationPlayer")
 
@@ -25,6 +26,9 @@ func _on_mouse_exited() -> void:
 
 
 func _on_retry_pressed() -> void:
+	var player_height: int = int(player.get("highest_height"))
+	if player_height > Data.high_score:
+		Data.high_score = player_height
 	Data.coins = 0
 	Globals.scene_entry = &"retry"
 	var fade_animation_player: AnimationPlayer = Fade.get_node("AnimationPlayer")
